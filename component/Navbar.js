@@ -4,7 +4,7 @@ import { useState, useEffect } from "react";
 import { useCart } from "../context/CartContext";
 import { ShoppingCart, X } from "lucide-react";
 import { Dialog } from "@headlessui/react";
-import { auth } from "../lib/Firebase"; // adjust path
+import { auth } from "../lib/Firebase"; 
 import { onAuthStateChanged, signOut } from "firebase/auth";
 import { useRouter } from "next/navigation";
 
@@ -44,12 +44,12 @@ export default function Navbar() {
   return (
     <nav className="bg-white shadow-md">
       <div className="container mx-auto px-6 py-4 flex justify-between items-center">
-        {/* Logo */}
+     
         <Link href="/" className="text-2xl font-bold text-blue-600">
           MyShop
         </Link>
 
-        {/* Links */}
+ 
         <div className="flex space-x-6 items-center">
           <Link href="/" className="hover:text-blue-600">
             Home
@@ -58,7 +58,6 @@ export default function Navbar() {
             Shop
           </Link>
 
-          {/* Greeting + Login/Logout */}
           <button
             onClick={handleAuthClick}
             className="px-4 py-2 bg-gray-200 rounded hover:bg-gray-300"
@@ -66,7 +65,7 @@ export default function Navbar() {
             {user ? `Hello, ${user.email.split("@")[0]} | Logout` : "Login"}
           </button>
 
-          {/* Cart Button */}
+          
           <button
             onClick={() => setIsOpen(true)}
             className="relative flex items-center text-blue-600"
@@ -81,11 +80,11 @@ export default function Navbar() {
         </div>
       </div>
 
-      {/* Cart Drawer */}
+ 
       <Dialog open={isOpen} onClose={() => setIsOpen(false)} className="relative z-50">
         <div className="fixed inset-0 bg-black/40" aria-hidden="true" />
         <div className="fixed inset-y-0 right-0 w-full max-w-md bg-white shadow-xl p-6 overflow-y-auto">
-          {/* Header */}
+     
           <div className="flex justify-between items-center mb-6">
             <h2 className="text-xl font-bold">Your Cart</h2>
             <button onClick={() => setIsOpen(false)}>
@@ -93,7 +92,7 @@ export default function Navbar() {
             </button>
           </div>
 
-          {/* Cart Items */}
+     
           {cart.length === 0 ? (
             <p className="text-gray-500">Your cart is empty 🛒</p>
           ) : (
@@ -115,7 +114,7 @@ export default function Navbar() {
                     </div>
                   </div>
 
-                  {/* Quantity Controls */}
+               
                   <div className="flex items-center gap-2">
                     <button
                       onClick={() =>
@@ -134,7 +133,7 @@ export default function Navbar() {
                     </button>
                   </div>
 
-                  {/* Remove */}
+         
                   <button
                     onClick={() => removeFromCart(item.id)}
                     className="text-red-500 hover:text-red-600"
@@ -146,7 +145,7 @@ export default function Navbar() {
             </div>
           )}
 
-          {/* Footer */}
+
           {cart.length > 0 && (
             <div className="mt-6 border-t pt-4">
               <h3 className="text-lg font-bold">

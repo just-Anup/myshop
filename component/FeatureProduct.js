@@ -60,7 +60,7 @@ export default function FeaturedProducts() {
           ))}
         </div>
 
-        {/* ✅ Show Modal when product is selected */}
+   
         {selectedProduct && (
           <ProductModal
             product={selectedProduct}
